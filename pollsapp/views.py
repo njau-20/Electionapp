@@ -9,12 +9,7 @@ def index(request):
 def vote(request,pk):
     question = Question.objects.get(id=pk)
     options = question.choices.all()
-    # if request.method == 'POST':
-    #     inputvalue = request.POST['choice']
-    #     selection_option = options.get(id=inputvalue)
-    #     selection_option.vote += 5
-    #     selection_option.save()
-
+    
     return render(request, 'vote.html', {'question':question, 'options': options })
 
 def result(request, pk):
